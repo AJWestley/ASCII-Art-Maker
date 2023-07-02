@@ -13,4 +13,4 @@ This is just a little script that let's you turn any image you have into ASCII a
 - Output size scaling
 - GUI
 - gif support
-- auto animations and art
+- Auto animations and art
