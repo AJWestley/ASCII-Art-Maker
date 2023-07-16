@@ -7,6 +7,19 @@ class ASCII_Artwork:
         self.image = []
         self.ascii_image = []
 
+    def import_adjust(
+        self, path: str, ideal_width: int = 100, height_scale_factor: float = 0.6
+    ):
+        # import image, then greyscale and resize
+        img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+        scale_factor = ideal_width / img.shape[1]
+        scaled_dimensions = (
+            int(img.shape[1] * scale_factor),
+            int(img.shape[0] * scale_factor * height_scale_factor),
+        )
+
+        self.image = cv2.resize(img, scaled_dimensions, interpolation=cv2.INTER_AREA)
+
     def translate(self, inv: bool = False):
         self.ascii_image = []
         for row in self.image:
@@ -24,19 +37,6 @@ class ASCII_Artwork:
         os.system("cls" if os.name == "nt" else "clear")
         print()
         print(self.to_string())
-
-    def import_adjust(
-        self, path: str, ideal_width: int = 100, height_scale_factor: float = 0.6
-    ):
-        # import image, then greyscale and resize
-        img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-        scale_factor = ideal_width / img.shape[1]
-        scaled_dimensions = (
-            int(img.shape[1] * scale_factor),
-            int(img.shape[0] * scale_factor * height_scale_factor),
-        )
-
-        self.image = cv2.resize(img, scaled_dimensions, interpolation=cv2.INTER_AREA)
 
     @staticmethod
     def pixel_to_ascii(pixel_val: int, inv: bool = False) -> str:
