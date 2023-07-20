@@ -4,7 +4,7 @@ import ASCII
 
 
 def choose_file():
-    extensions = ["*.png", "*.PNG", "*.jpg", "*.JPG", "*.jpeg", "*.JPEG"]
+    extensions = ["*.png", "*.PNG", "*.jpg", "*.JPG", "*.jpeg", "*.JPEG", ".webp"]
     ftypes = [("images", extensions)]
     filepath = filedialog.askopenfilename(
         title="Choose an image", initialdir="/", filetypes=ftypes
