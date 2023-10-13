@@ -44,9 +44,3 @@ ASCII.py can be run as a command-line version of the program.
 
 A GUI version of the application, created using the tkinter framework.
 Displays the resulting art in a tkinter label. 
-
-## Features to be added
-
-- Error checking
-- gif support
-- Auto animations and art
